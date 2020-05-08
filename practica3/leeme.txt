@@ -1,0 +1,45 @@
+1. ICMP y echo/ping dentro de la red local: Realizado
+    En Wireshark en la máquina virtual comprobamos que se envia el paquete icmp
+    y que se recibe un paquete de respuesta.
+    Con Wireshark en la máquina host comprobamos que se recibe el paquete enviado por el
+    programa que se ejecuta en la máquina virtual.
+    
+2. ICMP y echo/ping en un equipo no adyacente: Realizado
+    Enviando un paquete ping a una direccion de internet(8.8.8.8) comprobamos con Wireshark
+    que se envia el paquete y que se recibe una respuesta. Además, usando dos ordenadores de los
+    laboratorios(uno con una máquina virtual(1) ejecutandose y el otro ordenador sin VM(2)), 
+    enviamos un ping desde la máquina virtual y teniendo Wireshark capturando en el ordenador 2 
+    comprobamos que se reciben los paquetes.
+
+3. Formación correcta de un paquete UDP dentro de la red local: Realizado
+    Comprobamos que los valores de los campos del protocolo UDP sean correctos:
+    PO=> puerto asignado por la funcion de interface.c
+    PD=> puerto introducido como argumento del programa
+    Longitud => Longitud del fichero + 8(cuando se le de un fichero)
+    Eligiendo un puerto destino alto(para que no coincida con el puerto de ninguna aplicación)
+    enviamos paquetes desde la máquina virtual y comprobamos con wireshark que se
+    reciben en la máquina host.
+
+4. Envío y Recepción de un paquete UDP en un equipo no adyacente (externo a la LAN): Realizado
+    Usando el mismo setup que el descrito en el punto 2 comprobamos que los paquetes
+    enviados llegan al otro extemos.
+
+5. Envío y Recepción de paquetes UDP que hayan sufrido fragmentación: Realizado
+    Siguiendo el mismo proceso descrito en los puntos 4 y 2 comprobamos que los datagramas
+    UDP se mandan en fragmentos de tamaño MTU - 20 y que wireshark detecta correctamente
+    que paquetes de los capturados forman parte del datagrama UDP
+
+6. Implementación del bit DF: Realizado
+    Usando Wireshark comprobamos que los paquetes enviados llevan el bit DF a 1 y cuando 
+    ejecutamos el programa leyendo desde un fichero, si el tamaño del fichero + tamaño 
+    de la cabecera UDP > MTU - 20 bytes, se muestra un error en la terminal y no sé 
+    envia ningún paquete
+
+7. Lectura de datos para paquetes UDP desde archivo: Realizado
+    Comprobamos con Wireshark que el tamaño enviado coincide con el tamaño 
+    del fichero y que los datos coinciden.
+
+8. Impresión de tramas enviadas por pantalla en hexadecimal: Realizado
+    Comprobamos que la salida de la terminal coincide con los datos en hexa 
+    que muestra Wireshark.
+

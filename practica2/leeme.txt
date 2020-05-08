@@ -1,0 +1,40 @@
+Autores:
+    Alberto Ayala
+    Mihai Blidaru
+
+Grupo 1311
+
+Información nivel 2: REALIZADO. Comprobamos que para las capturas incluidas en 
+    esta entrega, la información mostrada por nuestro programa coincide con lo 
+    que se muestra en Wireshark. Además, para los paquetes que no son IPV4, 
+    comprobamos que el programa indica que el protocolo no es el 
+    esperado(Las capturas entregadas contienen paquetes ARP, LLDP, etc).
+
+Información nivel 3: REALIZADO. Comprobamos que la información de nivel 3 que
+    muestra Wireshark coincide con la de nuestro programa usando las capturas 
+    fragipv4udp y options colgadas en moodle, también nuestra propia traza.
+
+Campo desplazamiento/offset: REALIZADO. Usando la captura fragipv4udp
+    comprobamos que el campo fragment offset coincide con wireshark 
+    y que para paquetes cuyo fragment offset es distinto de cero el 
+    programa muestra un mensaje de error y pasa a analizar el siguiente paquete.    
+
+Información nivel 4: REALIZADO. Comprobamos que la información de los protocolos
+    TCP y UDP coincide con la información que muestra wireshark.
+
+Captura desde interfaz de red: REALIZADO. El programa muestra y cuenta paquetes
+    cuando lo ejecutamos con la interfaz eth0. 
+
+No analizar tráfico cruzado (que no sea IP|TCP o IP|UDP): REALIZADO. La captura 2
+    contiene paquetes IGMPv2 y ICMP que son dos protocolos que funcionan por encima
+    de IPV4. Comprobamos que se muestra toda la información de nivel 2 y 3 y que 
+    se muestra un mensaje indicando que el protocolo detectado no es el esperado.
+
+Filtrado de paquetes: REALIZADO. Comprobamos el programa ejecutándolo con diferentes
+    combinaciones de filtros y verificando que no se muestra más información del paquete
+    cuando el campo filtrado no coincide. La captura2 contiene paquetes DNS cuyo IP destino
+    y puertos son conocidos (DNS de google:8.8.8.8 y puerto 53).
+
+Mostrar campos no pedidos: REALIZADO. Comprobamos que solo se muestran los campos
+    especificados en el enunciado.
+
